@@ -70,6 +70,18 @@ public class Operation implements Entity {
         this.categoryId = categoryId;
     }
 
+    @Override
+    public String toString() {
+        return String.format("%d, %s (%d), %d, %.2f, %s, %s",
+                getId(),
+                getType(),
+                getCategoryId(),
+                getBankAccountId(),
+                getAmount(),
+                getDate().toString(),
+                getDescription());
+    }
+
     /**
      * Factory Method
      * @param type

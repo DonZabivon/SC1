@@ -35,7 +35,8 @@ public class BankAccount implements Entity {
 
     @Override
     public String toString() {
-        return getName();
+        return String.format("%d, %s, %.2f",
+                getId(), getName(), getBalance().doubleValue());
     }
 
     /**

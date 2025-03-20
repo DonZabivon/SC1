@@ -7,5 +7,5 @@ public enum Type {
     /** Доход */
     INCOME,
     /** Расход */
-    OUTGO
+    OUTCOME
 }

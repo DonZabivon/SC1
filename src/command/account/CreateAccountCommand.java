@@ -1,5 +1,6 @@
-package command;
+package command.account;
 
+import command.Command;
 import model.BankAccount;
 import service.BankAccountService;
 

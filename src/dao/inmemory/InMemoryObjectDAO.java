@@ -23,8 +23,14 @@ public class InMemoryObjectDAO<E extends Entity> implements ObjectDAO<E> {
 
     @Override
     public E create(E object) throws DAOError {
-        long maxId = objects.keySet().stream().max(Long::compareTo).orElse(0L);
-        object.setId(maxId + 1);
+        if (object.getId() == 0) {
+            long maxId = objects.keySet().stream().max(Long::compareTo).orElse(0L);
+            object.setId(maxId + 1);
+        } else {
+            if (objects.containsKey(object.getId())) {
+                throw new DAOError("Object with id " + object.getId() + " already exists");
+            }
+        }
         objects.put(object.getId(), object);
         return object;
     }

@@ -33,7 +33,7 @@ public class Category implements Entity {
 
     @Override
     public String toString() {
-        return getName();
+        return String.format("%d, %s, %s", getId(), getType(), getName());
     }
 
     /**

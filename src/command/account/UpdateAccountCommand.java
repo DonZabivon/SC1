@@ -1,5 +1,6 @@
-package command;
+package command.account;
 
+import command.Command;
 import model.BankAccount;
 import service.BankAccountService;
 
@@ -23,10 +24,9 @@ public class UpdateAccountCommand implements Command {
     @Override
     public void execute() throws Exception {
         long id = idSupplier.getAsLong();
+        BankAccount account = bankAccountService.findById(id);
         String name = nameSupplier.get();
         double balance = balanceSupplier.getAsDouble();
-        BankAccount account = BankAccount.createAccount(name, balance);
-        account.setId(id);
         bankAccountService.update(account);
     }
 }

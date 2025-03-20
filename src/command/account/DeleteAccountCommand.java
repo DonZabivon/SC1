@@ -1,5 +1,6 @@
-package command;
+package command.account;
 
+import command.Command;
 import service.BankAccountService;
 
 import java.util.function.LongSupplier;
